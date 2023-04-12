@@ -15,6 +15,31 @@ class Xylophone extends StatelessWidget {
     );
   }
 
+  Expanded allButton({required Color color, required int soundNum, required String note}) {
+    return Expanded(
+      child: TextButton(
+        onPressed: () {
+          playNote(soundNum);
+        },
+        style: TextButton.styleFrom(
+          // foregroundColor: Colors.black,
+          backgroundColor: color,
+          shape: RoundedRectangleBorder(
+              borderRadius: BorderRadius.circular(0)),
+        ),
+        child: Text(
+          '${note}',
+          style: const TextStyle(
+            color: Colors.white,
+            fontSize: 20,
+          ),
+        ),
+      ),
+    );
+  }
+
+
+
   @override
   Widget build(BuildContext context) {
     final player = AudioPlayer();
@@ -23,147 +48,14 @@ class Xylophone extends StatelessWidget {
         body: SafeArea(
           child: Column(
             crossAxisAlignment: CrossAxisAlignment.stretch,
-            children: [
-              Expanded(
-                child: TextButton(
-                  onPressed: () {
-                    playNote(1);
-                  },
-                  style: TextButton.styleFrom(
-                    // foregroundColor: Colors.black,
-                    backgroundColor: Colors.red,
-                    shape: RoundedRectangleBorder(
-                        borderRadius: BorderRadius.circular(0)),
-                  ),
-                  child: const Text(
-                    'Sa!',
-                    style: TextStyle(
-                      color: Colors.white,
-                      fontSize: 20,
-                    ),
-                  ),
-                ),
-              ),
-              Expanded(
-                child: TextButton(
-                  onPressed: () {
-                    playNote(2);
-                  },
-                  style: TextButton.styleFrom(
-                    // foregroundColor: Colors.black,
-                    backgroundColor: Colors.blue,
-                    shape: RoundedRectangleBorder(
-                        borderRadius: BorderRadius.circular(0)),
-                  ),
-                  child: const Text(
-                    'Re!',
-                    style: TextStyle(
-                      color: Colors.white,
-                      fontSize: 20,
-                    ),
-                  ),
-                ),
-              ),
-              Expanded(
-                child: TextButton(
-                  onPressed: () {
-                    playNote(3);
-                  },
-                  style: TextButton.styleFrom(
-                    // foregroundColor: Colors.black,
-                    backgroundColor: Colors.green,
-                    shape: RoundedRectangleBorder(
-                        borderRadius: BorderRadius.circular(0)),
-                  ),
-                  child: const Text(
-                    'Ga!',
-                    style: TextStyle(
-                      color: Colors.white,
-                      fontSize: 20,
-                    ),
-                  ),
-                ),
-              ),
-              Expanded(
-                child: TextButton(
-                  onPressed: () {
-                    playNote(4);
-                  },
-                  style: TextButton.styleFrom(
-                    // foregroundColor: Colors.black,
-                    backgroundColor: Colors.purpleAccent,
-                    shape: RoundedRectangleBorder(
-                        borderRadius: BorderRadius.circular(0)),
-                  ),
-                  child: const Text(
-                    'Ma!',
-                    style: TextStyle(
-                      color: Colors.white,
-                      fontSize: 20,
-                    ),
-                  ),
-                ),
-              ),
-              Expanded(
-                child: TextButton(
-                  onPressed: () {
-                    playNote(5);
-                  },
-                  style: TextButton.styleFrom(
-                    // foregroundColor: Colors.black,
-                    backgroundColor: Colors.tealAccent,
-                    shape: RoundedRectangleBorder(
-                        borderRadius: BorderRadius.circular(0)),
-                  ),
-                  child: const Text(
-                    'Pa!',
-                    style: TextStyle(
-                      color: Colors.white,
-                      fontSize: 20,
-                    ),
-                  ),
-                ),
-              ),
-              Expanded(
-                child: TextButton(
-                  onPressed: () {
-                    playNote(6);
-                  },
-                  style: TextButton.styleFrom(
-                    // foregroundColor: Colors.black,
-                    backgroundColor: Colors.redAccent,
-                    shape: RoundedRectangleBorder(
-                        borderRadius: BorderRadius.circular(0)),
-                  ),
-                  child: const Text(
-                    'Dha!',
-                    style: TextStyle(
-                      color: Colors.white,
-                      fontSize: 20,
-                    ),
-                  ),
-                ),
-              ),
-              Expanded(
-                child: TextButton(
-                  onPressed: () {
-                    playNote(7);
-                  },
-                  style: TextButton.styleFrom(
-                    // foregroundColor: Colors.black,
-                    backgroundColor: Colors.teal,
-                    shape: RoundedRectangleBorder(
-                        borderRadius: BorderRadius.circular(0)),
-                  ),
-                  child: const Text(
-                    'Ni!',
-                    style: TextStyle(
-                      color: Colors.white,
-                      fontSize: 20,
-                    ),
-                  ),
-                ),
-              ),
+            children: <Widget>[
+              allButton(color : Colors.red, soundNum: 1 , note: 'Sa!'),
+              allButton(color : Colors.yellow, soundNum: 2, note: 'Re!'),
+              allButton(color : Colors.green, soundNum: 3, note: 'Ga!'),
+              allButton(color : Colors.purpleAccent, soundNum: 4, note: 'Ma!'),
+              allButton(color : Colors.indigoAccent, soundNum: 5, note: 'Pa!'),
+              allButton(color : Colors.brown, soundNum: 6, note: 'Dha!'),
+              allButton(color : Colors.black, soundNum: 7, note: 'Ni!'),
             ],
           ),
         ),
